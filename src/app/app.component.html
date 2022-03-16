@@ -1,0 +1,7 @@
+
+<mat-card>
+  <div class="mat-form-field" appearance="fill">
+    <input [(ngModel)]="signatureText" matInput>
+  </div>
+  <app-signature-generator-component [showSignature]="true" [signatureText]="signatureText"></app-signature-generator-component>
+</mat-card>

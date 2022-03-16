@@ -1,0 +1,16 @@
+<canvas #canvasEl [width]='imageWidth' [height]='imageHeight' style="display: none;background: #FFFFFF !important;"></canvas>
+<div *ngIf="dataSource.length > 1" class="cs-signature-generator">
+  <div class="sig-container"
+         [ngClass]="{'sig-active' : currentIndex == i }"
+         (click)="onSignatureSelection(item, i)"
+         *ngFor="let item of dataSource; index as i">
+    <div [ngStyle]="{'font-family': item.FontFamily, 'font-size': item.FontSize}">
+      {{ signatureText }}
+    </div>
+  </div>
+</div>
+<div *ngIf="showSignature">
+  <h3>Click on the above signatures. You can get the image here!</h3>
+  <img [src]='base64Image' *ngIf="base64Image" style="border:1px solid black" [width]='imageWidth'
+       [height]='imageHeight'>
+</div>
