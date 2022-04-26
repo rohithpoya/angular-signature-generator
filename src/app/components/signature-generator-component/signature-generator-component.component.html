@@ -1,4 +1,4 @@
-<canvas #canvasEl [width]='imageWidth' [height]='imageHeight' style="display: none;background: #FFFFFF !important;"></canvas>
+<canvas #canvasEl style="display: none;background: #FFFFFF !important;" class="canvas"></canvas>
 <div *ngIf="dataSource.length > 1" class="cs-signature-generator">
   <div class="sig-container"
          [ngClass]="{'sig-active' : currentIndex == i }"
@@ -11,6 +11,5 @@
 </div>
 <div *ngIf="showSignature">
   <h3>Click on the above signatures. You can get the image here!</h3>
-  <img [src]='base64Image' *ngIf="base64Image" style="border:1px solid black" [width]='imageWidth'
-       [height]='imageHeight'>
+  <img class="img" [src]='base64Image' *ngIf="base64Image">
 </div>

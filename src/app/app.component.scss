@@ -1,15 +1,19 @@
 .mat-card{
-    margin: 2% 20% 0 20%;
+    margin: 0 20% 0 20%;
+    .mr{
+        margin-top: 20px;
+    }
 }
 
 .mat-form-field {
     width: 100%;
+    margin-bottom: 5vh;
     .mat-form-field-flex{
         width: 100%;
     }
     input{
         width: calc(100% - 20px);
-        font-size: 20px;
+        font-size: 1vw;
         height: 50px;
         border: 1px solid #dadada;
         border-radius: 5px;
