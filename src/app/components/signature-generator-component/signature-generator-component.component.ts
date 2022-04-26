@@ -1,4 +1,5 @@
 import { Component, ElementRef, Input, OnInit, Output, ViewChild, EventEmitter } from '@angular/core';
+import { saveAs } from 'file-saver';
 
 @Component({
   selector: 'app-signature-generator-component',
@@ -29,6 +30,11 @@ export class SignatureGeneratorComponentComponent implements OnInit {
       this.generateSignature(data.FontSize, data.FontFamily, data.FontWeight);
     }
 
+    download(){
+        let file = this.convertBase64ToFile(this.base64Image, 'signature.png');
+        saveAs(file, 'signature.png');
+    }
+
     private generateSignature(fontSize: string, fontFamily: string, fontWeight: string) {
         this.context = (this.canvasEl
             .nativeElement as HTMLCanvasElement).getContext("2d") as CanvasRenderingContext2D;
@@ -53,6 +59,19 @@ export class SignatureGeneratorComponentComponent implements OnInit {
             this.signatureAsBase64.emit(this.base64Image);
         }
     }
+
+    convertBase64ToFile(base64String: string, fileName : string){
+        let arr = base64String.split(',');
+        let mime = 'image/png';
+        let bstr = atob(arr[1]);
+        let n = bstr.length;
+        let uint8Array = new Uint8Array(n);
+        while (n--) {
+           uint8Array[n] = bstr.charCodeAt(n);
+        }
+        let file = new File([uint8Array], fileName, { type: mime });
+        return file;
+   }
 }
 
 export interface styleInfo{

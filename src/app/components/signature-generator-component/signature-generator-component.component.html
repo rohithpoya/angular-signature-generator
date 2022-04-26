@@ -10,6 +10,9 @@
   </div>
 </div>
 <div *ngIf="showSignature">
-  <h3>Click on the above signatures. You can get the image here!</h3>
+  <div class="flex">
+    <h3>Click on the above signatures. You can get the image here!</h3>
+    <button *ngIf="base64Image" (click)="download()" mat-button color="primary">Download signature</button>
+  </div>
   <img class="img" [src]='base64Image' *ngIf="base64Image">
 </div>

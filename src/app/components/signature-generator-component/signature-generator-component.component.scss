@@ -18,3 +18,18 @@
     border: 1px solid #dadada;
     border-radius: 5px;
 }
+.flex{
+    display: initial;
+    h3{
+        position: relative;
+        top: 10px;
+        display: inherit;
+        width: 50%;
+    }
+    button{
+        border: 1px solid #dadada;
+        // margin-left: 5%;
+        margin-bottom: 10px;
+        float: right;
+    }
+}
